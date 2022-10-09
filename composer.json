@@ -17,7 +17,18 @@
         "php": ">=7.4.0",
         "yiisoft/yii2": "~2.0.45",
         "yiisoft/yii2-bootstrap5": "~2.0.2",
-        "yiisoft/yii2-symfonymailer": "~2.0.3"
+        "yiisoft/yii2-symfonymailer": "~2.0.3",
+        "rzlco666/yii2-region-id-migrations": "^2022.0",
+        "rzlco666/yii2-rupiah": "^1.1",
+        "rzlco666/ostium-date": "^1.3",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-widget-depdrop": "dev-master",
+        "yiisoft/yii2-imagine": "^2.3",
+        "frosya-labs/id-date-formatter": "^1.2",
+        "liuyuanjun/yii2-softdelete": "^1.0",
+        "bizley/quill": "^3.3",
+        "npm-asset/quill": "1.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

@@ -1,5 +1,8 @@
 <?php
 return [
+    'timeZone' => 'Asia/Jakarta',
+    'language' => 'id',
+    'name' => 'SIJUM',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
