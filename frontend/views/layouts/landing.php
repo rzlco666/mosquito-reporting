@@ -1,15 +1,10 @@
 <?php
 
-/** @var View $this */
-
-/** @var string $content */
-
-use frontend\assets\AppAsset;
+use frontend\assets\LandingAsset;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
-use yii\web\View;
 
-AppAsset::register($this);
+LandingAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -30,36 +25,17 @@ AppAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body>
+    <body class="landing-wrraper">
     <?php $this->beginBody() ?>
-    <!-- Loader starts-->
-    <div class="loader-wrapper">
-        <div class="theme-loader">
-            <div class="loader-p"></div>
-        </div>
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper landing-page">
+        <!-- Page Body Start-->
+        <?= $content ?>
+        <!-- Page Body End-->
     </div>
-    <!-- Loader ends -->
-
-    <!-- page-wrapper Start -->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
-        <!-- Page Header Start --><?= $this->render("components/header") ?>
-        <!-- Page Header Ends -->
-        <!-- Page Body Start -->
-        <div class="page-body-wrapper sidebar-icon">
-            <!-- Page Sidebar Start -->
-            <?= $this->render("components/sidebar") ?>
-            <!-- Page Sidebar Ends -->
-            <div class="page-body">
-                <!-- Container-fluid starts -->
-                <?= $content ?>
-                <!-- Container-fluid Ends -->
-            </div>
-            <!-- footer start -->
-            <?= $this->render("components/footer") ?>
-            <!-- footer end -->
-        </div>
-    </div>
-
     <?php $this->endBody() ?>
 
     <!--- Notify Session -->
@@ -67,12 +43,11 @@ AppAsset::register($this);
         <script>
             $(document).ready(function () {
                 $.notify({
-                    title: '<strong>Berhasil!</strong>',
+                    title: '<strong>Success!</strong>',
                     message: "<?= Yii::$app->session->getFlash('success') ?>"
 
                 }, {
-                    type: 'primary',
-                    mouse_over: true,
+                    type: 'success',
                     spacing: 10,
                     timer: 3000,
                     placement: {
@@ -93,12 +68,11 @@ AppAsset::register($this);
         <script>
             $(document).ready(function () {
                 $.notify({
-                    title: '<strong>Gagal!</strong>',
+                    title: '<strong>Error!</strong>',
                     message: "<?= Yii::$app->session->getFlash('error') ?>"
 
                 }, {
                     type: 'danger',
-                    mouse_over: true,
                     spacing: 10,
                     timer: 3000,
                     placement: {
@@ -119,4 +93,4 @@ AppAsset::register($this);
 
     </body>
     </html>
-<?php $this->endPage();
+<?php $this->endPage() ?>

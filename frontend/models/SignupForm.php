@@ -19,6 +19,7 @@ class SignupForm extends Model
     public $subdistrict_id;
     public $email;
     public $password;
+    public $policy;
 
 
     /**
@@ -48,6 +49,8 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+
+            ['policy', 'required', 'message' => 'Anda harus setuju dengan syarat dan ketentuan.'],
         ];
     }
 
@@ -94,5 +97,27 @@ class SignupForm extends Model
             ->setTo($this->email)
             ->setSubject('Account registration at ' . Yii::$app->name)
             ->send();
+    }
+
+    //label
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'nama' => 'Nama',
+            'username' => 'Username',
+            'province_id' => 'Provinsi',
+            'city_id' => 'Kota',
+            'district_id' => 'Kecamatan',
+            'subdistrict_id' => 'Kelurahan',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'verification_token' => 'Verification Token',
+            'email' => 'Email',
+            'auth_key' => 'Auth Key',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+        ];
     }
 }

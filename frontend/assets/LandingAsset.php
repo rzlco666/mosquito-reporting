@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 /**
  * Main frontend application asset bundle.
  */
-class AppAsset extends AssetBundle
+class LandingAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -25,8 +25,11 @@ class AppAsset extends AssetBundle
         'css/feather-icon.css',
 
         //Plugins css start
-        'css/prism.css',
-        'css/datatables.css',
+
+        //landing
+        'css/animate.css',
+        'css/owlcarousel.css',
+
         //Plugins css ends
 
         //Core css
@@ -48,13 +51,13 @@ class AppAsset extends AssetBundle
         'js/bootstrap/popper.min.js',
 
         //Plugins JS start
-        'js/prism/prism.min.js',
-        'js/clipboard/clipboard.min.js',
-        'js/custom-card/custom-card.js',
-        'js/height-equal.js',
 
-        'js/datatable/datatables/jquery.dataTables.min.js',
-        'js/datatable/datatables/datatable.custom.js',
+        //landing
+        'js/owlcarousel/owl.carousel.js',
+        'js/owlcarousel/owl-custom.js',
+        'js/landing_sticky.js',
+        'js/landing.js',
+        //'js/jarallax_libs/libs.min.js',
 
         'js/notify/bootstrap-notify.min.js',
         'js/tooltip-init.js',

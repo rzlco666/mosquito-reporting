@@ -1,22 +1,16 @@
 <?php
 
-/** @var View $this */
-
-/** @var string $content */
-
-use frontend\assets\AppAsset;
+use frontend\assets\LandingAsset;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
-use yii\web\View;
 
-AppAsset::register($this);
+LandingAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description"
@@ -28,6 +22,7 @@ AppAsset::register($this);
         <link rel="shortcut icon" href="<?= Url::home() ?>images/favicon.png" type="image/x-icon">
         <?php $this->registerCsrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
+
         <?php $this->head() ?>
     </head>
     <body>
@@ -38,28 +33,10 @@ AppAsset::register($this);
             <div class="loader-p"></div>
         </div>
     </div>
-    <!-- Loader ends -->
-
-    <!-- page-wrapper Start -->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
-        <!-- Page Header Start --><?= $this->render("components/header") ?>
-        <!-- Page Header Ends -->
-        <!-- Page Body Start -->
-        <div class="page-body-wrapper sidebar-icon">
-            <!-- Page Sidebar Start -->
-            <?= $this->render("components/sidebar") ?>
-            <!-- Page Sidebar Ends -->
-            <div class="page-body">
-                <!-- Container-fluid starts -->
-                <?= $content ?>
-                <!-- Container-fluid Ends -->
-            </div>
-            <!-- footer start -->
-            <?= $this->render("components/footer") ?>
-            <!-- footer end -->
-        </div>
-    </div>
-
+    <!-- Loader ends-->
+    <!-- page-wrapper Start-->
+    <?= $content ?>
+    <!-- page-wrapper end-->
     <?php $this->endBody() ?>
 
     <!--- Notify Session -->
@@ -67,14 +44,13 @@ AppAsset::register($this);
         <script>
             $(document).ready(function () {
                 $.notify({
-                    title: '<strong>Berhasil!</strong>',
+                    title: '<strong>Success!</strong>',
                     message: "<?= Yii::$app->session->getFlash('success') ?>"
 
                 }, {
-                    type: 'primary',
-                    mouse_over: true,
+                    type: 'success',
                     spacing: 10,
-                    timer: 3000,
+                    timer: 2000,
                     placement: {
                         from: 'top',
                         align: 'right'
@@ -93,14 +69,13 @@ AppAsset::register($this);
         <script>
             $(document).ready(function () {
                 $.notify({
-                    title: '<strong>Gagal!</strong>',
+                    title: '<strong>Error!</strong>',
                     message: "<?= Yii::$app->session->getFlash('error') ?>"
 
                 }, {
                     type: 'danger',
-                    mouse_over: true,
                     spacing: 10,
-                    timer: 3000,
+                    timer: 2000,
                     placement: {
                         from: 'top',
                         align: 'right'
@@ -119,4 +94,4 @@ AppAsset::register($this);
 
     </body>
     </html>
-<?php $this->endPage();
+<?php $this->endPage() ?>
