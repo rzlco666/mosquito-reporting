@@ -12,7 +12,12 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
+ * @property string $nama
  * @property string $username
+ * @property integer $province_id
+ * @property integer $city_id
+ * @property integer $district_id
+ * @property integer $subdistrict_id
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token

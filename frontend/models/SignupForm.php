@@ -11,7 +11,12 @@ use common\models\User;
  */
 class SignupForm extends Model
 {
+    public $nama;
     public $username;
+    public $province_id;
+    public $city_id;
+    public $district_id;
+    public $subdistrict_id;
     public $email;
     public $password;
 
@@ -22,10 +27,18 @@ class SignupForm extends Model
     public function rules()
     {
         return [
+            ['nama', 'required'],
+            ['nama', 'string', 'min' => 2, 'max' => 255],
+
             ['username', 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['province_id', 'required'],
+            ['city_id', 'required'],
+            ['district_id', 'required'],
+            ['subdistrict_id', 'required'],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -50,7 +63,12 @@ class SignupForm extends Model
         }
         
         $user = new User();
+        $user->nama = $this->nama;
         $user->username = $this->username;
+        $user->province_id = $this->province_id;
+        $user->city_id = $this->city_id;
+        $user->district_id = $this->district_id;
+        $user->subdistrict_id = $this->subdistrict_id;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
