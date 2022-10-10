@@ -22,13 +22,16 @@
         "rzlco666/yii2-rupiah": "^1.1",
         "rzlco666/ostium-date": "^1.3",
         "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-bootstrap5-dropdown": "@dev",
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widget-depdrop": "dev-master",
+        "kartik-v/yii2-widget-datepicker": "dev-master",
         "yiisoft/yii2-imagine": "^2.3",
         "frosya-labs/id-date-formatter": "^1.2",
         "liuyuanjun/yii2-softdelete": "^1.0",
         "bizley/quill": "^3.3",
-        "npm-asset/quill": "1.3"
+        "npm-asset/quill": "1.3",
+        "denkorolkov/yii2-ajaxcrud-bs5": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

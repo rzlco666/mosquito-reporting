@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\Profile;
 use Yii;
 use yii\base\Model;
 use common\models\User;
@@ -66,18 +67,29 @@ class SignupForm extends Model
         }
         
         $user = new User();
-        $user->nama = $this->nama;
         $user->username = $this->username;
-        $user->province_id = $this->province_id;
-        $user->city_id = $this->city_id;
-        $user->district_id = $this->district_id;
-        $user->subdistrict_id = $this->subdistrict_id;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        return $user->save() && $this->sendEmail($user);
+        if ($user->save()) {
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+            $profile->nama = $this->nama;
+            $profile->province_id = $this->province_id;
+            $profile->city_id = $this->city_id;
+            $profile->district_id = $this->district_id;
+            $profile->subdistrict_id = $this->subdistrict_id;
+            $profile->foto = 'default.png';
+            $profile->created = date('Y-m-d H:i:s');
+            $profile->createdBy = $user->id;
+            $profile->modified = date('Y-m-d H:i:s');
+            $profile->modifiedBy = $user->id;
+            $profile->save();
+
+            return $this->sendEmail($user);
+        }
     }
 
     /**
