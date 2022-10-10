@@ -1,5 +1,6 @@
 <?php
 
+use kartik\grid\Module;
 use yii\log\FileTarget;
 use yii\web\Request;
 
@@ -48,6 +49,15 @@ return [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+    ],
+    'modules' => [
+        'gridview' => [
+            'class' => Module::class,
+            'bsVersion' => '5.x',
+        ],
+        'profile' => [
+            'class' => 'frontend\modules\profile\Module',
         ],
     ],
     'params' => $params,
