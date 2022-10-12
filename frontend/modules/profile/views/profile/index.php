@@ -7,6 +7,7 @@
 
 use common\components\Breadcrumb;
 use common\models\Profile;
+use FrosyaLabs\Lang\IdDateFormatter;
 use kartik\detail\DetailView;
 use yii\helpers\Url;
 
@@ -63,7 +64,10 @@ $profile = Profile::find()->where(['id' => $model->id])->one();
                                         'value' => ucwords($model->subdistrict->name) . ', ' . ucwords(strtolower($model->city->name)) . ', ' . ucwords(strtolower($model->province->name)),
                                     ],
                                     'tempat_lahir',
-                                    'tanggal_lahir',
+                                    [
+                                        'attribute' => 'tanggal_lahir',
+                                        'value' => IdDateFormatter::format($model->tanggal_lahir, IdDateFormatter::LONG),
+                                    ],
                                     'jenis_kelamin',
                                     'agama',
                                     'telp',

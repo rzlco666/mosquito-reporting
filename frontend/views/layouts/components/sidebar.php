@@ -39,6 +39,13 @@ $subdistrict = Subdistrict::find()->where(['id' => $profile->subdistrict_id])->o
                                     data-feather="user"></i><span>Profile</span></a></li>
                     <li class="sidebar-main-title">
                         <div>
+                            <h6>Warga </h6>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="<?= Url::to(['/warga/pelaporan/']) ?>"><i
+                                    data-feather="target"></i><span>Pelaporan</span></a></li>
+                    <li class="sidebar-main-title">
+                        <div>
                             <h6>Admin </h6>
                         </div>
                     </li>
