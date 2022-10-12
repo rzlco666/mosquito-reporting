@@ -50,6 +50,13 @@ return [
             'rules' => [
             ],
         ],
+        'encrypter' => [
+            'class'=>'\nickcv\encrypter\components\Encrypter',
+            'globalPassword'=>'itspku2022',
+            'iv'=>'zxcvbnmasdfghjkl',
+            'useBase64Encoding'=>true,
+            'use256BitesEncoding'=>false,
+        ]
     ],
     'modules' => [
         'gridview' => [
@@ -58,6 +65,9 @@ return [
         ],
         'profile' => [
             'class' => 'frontend\modules\profile\Module',
+        ],
+        'warga' => [
+            'class' => 'frontend\modules\warga\Module',
         ],
     ],
     'params' => $params,

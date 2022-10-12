@@ -214,5 +214,5 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * After save event
      */
-    
+
 }
