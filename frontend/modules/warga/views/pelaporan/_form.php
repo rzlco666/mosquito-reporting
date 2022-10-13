@@ -19,7 +19,7 @@ LatlonAsset::register($this);
 
     <?= $form->field($model, 'longitude')->textInput(['id' => 'Longitude']) ?>
 
-    <?= $form->field($model, 'position')->hiddenInput(['id' => 'Position1'])->label(false) ?>
+    <?php //$form->field($model, 'position')->hiddenInput(['id' => 'Position1'])->label(false) ?>
 
     <?= Html::button('Lacak Lokasi', ['onclick' => 'getLocationConstant()', 'class' => 'btn btn-light mb-2']) ?>
 

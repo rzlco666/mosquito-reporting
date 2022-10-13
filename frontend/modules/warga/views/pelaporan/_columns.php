@@ -12,6 +12,25 @@ return [
     [
         'class' => '\kartik\grid\DataColumn',
         'attribute' => 'position',
+        'value' => function ($model) {
+            return $model->latitude . ',' . $model->longitude;
+        },
+    ],
+    [
+        'class' => 'kartik\grid\ActionColumn',
+        'header' => 'Maps',
+        'noWrap' => true,
+        'dropdown' => false,
+        'template' => '{maps}',
+        'vAlign' => 'middle',
+        'buttons' => [
+            'maps' => function ($url, $model) {
+                //a href maps
+                $position = $model->latitude . ',' . $model->longitude;
+                $urlMaps = Url::to('https://maps.google.com/?q=' . $position);
+                return Html::a('Detail Maps', $urlMaps, ['target' => '_blank']);
+            },
+        ],
     ],
     [
         'class' => '\kartik\grid\DataColumn',

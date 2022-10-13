@@ -106,6 +106,19 @@ class PelaporanController extends Controller
     }
 
     /**
+     * Displays a single popup maps Pelaporan model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionPop($id)
+    {
+        $this->layout = false;
+        return $this->render('pop', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
      * Finds the Pelaporan model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -190,6 +203,8 @@ class PelaporanController extends Controller
                 }
 
                 if ($model->save()){
+                    $model->position = '{"type":"Feature","geometry":{"type":"Point","coordinates":['.$model->longitude.','.$model->latitude.']},"properties":{"id":'.$model->id.'}}';
+                    $model->save();
                     SessionFlash::sessionSuccessCreate();
                     return $this->redirect(['index']);
                 }
@@ -283,6 +298,8 @@ class PelaporanController extends Controller
                         $model->foto = $old_image;
                     }
                 }
+
+                $model->position = '{"type":"Feature","geometry":{"type":"Point","coordinates":['.$model->longitude.','.$model->latitude.']},"properties":{"id":'.$model->id.'}}';
 
                 if ($model->save()){
                     SessionFlash::sessionSuccessUpdate();

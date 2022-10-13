@@ -14,7 +14,7 @@ function getLocationConstant() {
 function onGeoSuccess(event) {
     document.getElementById("Latitude").value = event.coords.latitude;
     document.getElementById("Longitude").value = event.coords.longitude;
-    document.getElementById("Position1").value = event.coords.latitude + ", " + event.coords.longitude;
+    document.getElementById("Position1").value = event.coords.longitude + ", " + event.coords.latitude;
 
 }
 

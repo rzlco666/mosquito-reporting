@@ -25,6 +25,7 @@ use kartik\detail\DetailView;
             [
                 'attribute' => 'position',
                 'label' => 'Koordinat',
+                'value' => $model->latitude . ',' . $model->longitude,
             ],
             'alamat:ntext',
             [

@@ -47,7 +47,7 @@ class Pelaporan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['profile_id', 'latitude', 'longitude', 'position', 'foto', 'status', 'created', 'createdBy', 'modified', 'modifiedBy'], 'required'],
+            [['profile_id', 'latitude', 'longitude', 'foto', 'status', 'created', 'createdBy', 'modified', 'modifiedBy'], 'required'],
             [['profile_id', 'status', 'createdBy', 'modifiedBy', 'is_deleted'], 'integer'],
             [['latitude', 'longitude', 'position', 'alamat', 'foto'], 'string'],
             [['created', 'modified'], 'safe'],

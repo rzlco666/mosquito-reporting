@@ -35,6 +35,7 @@ use yii\helpers\Url;
                         [
                             'attribute' => 'position',
                             'label' => 'Koordinat',
+                            'value' => $model->latitude . ',' . $model->longitude,
                         ],
                         [
                             'attribute' => 'status',
